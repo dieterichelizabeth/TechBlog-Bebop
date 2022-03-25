@@ -1,0 +1,28 @@
+{
+  "name": "techblog-bebop",
+  "version": "1.0.0",
+  "description": "14. Model-View-Controller (MVC) Challenge: Tech Blog 🌟 🌚 🌙",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dieterichelizabeth/TechBlog-Bebop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dieterichelizabeth/TechBlog-Bebop/issues"
+  },
+  "homepage": "https://github.com/dieterichelizabeth/TechBlog-Bebop#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.0",
+    "express-handlebars": "^6.0.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0"
+  }
+}
