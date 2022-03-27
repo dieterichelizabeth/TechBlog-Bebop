@@ -1,33 +1,33 @@
-const { Model, Datatypes } = require("sequelize");
-const Post = require("./Post");
-const Comment = require("./Comment");
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../connect/connection");
 
 class User extends Model {}
 
-User.init({
-  // collumn definitions
-  id: {
-    type: DataTypes.UUID,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
+User.init(
+  {
+    // collumn definitions
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    userPassword: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
-  username: {
-    type: Datatypes.STRING,
-    allowNull: false,
-  },
-  userPassword: {
-    type: Datatypes.STRING,
-    allowNull: false,
-  },
-  // configuration
-  sequelize,
-  freezeTableName: true,
-  modelName: "user",
-});
-
-// Associations
-User.hasMany(Post, { foreignKey: "user_id" });
-User.hasMany(Comment, { foreignKey: "user_id" });
+  {
+    // configuration
+    sequelize,
+    freezeTableName: true,
+    modelName: "user",
+    timestamps: false,
+  }
+);
 
 module.exports = User;
