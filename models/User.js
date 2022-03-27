@@ -1,4 +1,6 @@
 const { Model, Datatypes } = require("sequelize");
+const Post = require("./Post");
+const Comment = require("./Comment");
 
 class User extends Model {}
 
@@ -23,5 +25,9 @@ User.init({
   freezeTableName: true,
   modelName: "user",
 });
+
+// Associations
+User.hasMany(Post, { foreignKey: "user_id" });
+User.hasMany(Comment, { foreignKey: "user_id" });
 
 module.exports = User;

@@ -1,6 +1,7 @@
 // import dependencies
 const express = require("express");
 
+// definitions
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
