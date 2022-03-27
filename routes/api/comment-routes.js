@@ -1,29 +1,118 @@
 const router = require("express").Router();
-// route: api/comments
+const { Comment } = require("../../models");
 
-// get route for all comments
+// ROUTE: /api/comments
+
 router.get("/", (req, res) => {
-  console.log("gets all comments");
+  // get all comments
+  Comment.findAll()
+    .then((commentData) => res.json(commentData))
+    // if internal server error, inform user
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "Something has gone wrong, please try again" });
+    });
 });
 
-// get route for one comment
 router.get("/:id", (req, res) => {
-  console.log("get one comment");
+  // get one comment (by id)
+  Comment.findOne({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((commentData) => {
+      // if id not found, inform user
+      if (!commentData) {
+        res.status(404).json({
+          message: "Sorry, the comment you are searching for does not exist",
+        });
+        return;
+      }
+      // else, display the comment
+      res.json(commentData);
+    })
+    // if internal server error, inform user
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "Something has gone wrong, please try again" });
+    });
 });
 
-// post route for a new comment
+// post a new comment
 router.post("/", (req, res) => {
-  console.log("post one comment");
+  // expects {"body": "Awesome post!", "user_id": "1", "post_id": "2"}
+
+  Comment.create(req.body)
+    .then((commentData) => res.status(200).json(commentData))
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "Something has gone wrong, please try again" });
+    });
 });
 
-// update route for one comment
 router.put("/:id", (req, res) => {
-  console.log("update one comment");
+  // expects {"body": "Awesome post!", "user_id": "1", "post_id": "2"}
+
+  // update one comment (by id)
+  Comment.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((commentData) => {
+      // if id not found, inform user
+      if (!commentData) {
+        res.status(404).json({
+          message: "Sorry, the comment you are searching for does not exist",
+        });
+        return;
+      }
+      // else, inform completed
+      res.status(200).json(commentData);
+      console.log("Comment updated!");
+    })
+    // if internal server error, inform user
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "Something has gone wrong, please try again" });
+    });
 });
 
-// delete route for one comment
 router.delete("/:id", (req, res) => {
-  console.log("delete one comment");
+  // delete one comment (by id)
+  Comment.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((commentData) => {
+      // if id not found, inform user
+      if (!commentData) {
+        res.status(404).json({
+          message: "Sorry, the comment you are searching for does not exist",
+        });
+        return;
+      }
+      // else, inform completed
+      res.status(200).json(commentData);
+      console.log("Comment deleted!");
+    })
+    // if internal server error, inform user
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "Something has gone wrong, please try again" });
+    });
 });
 
 module.exports = router;
