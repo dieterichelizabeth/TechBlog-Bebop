@@ -1,4 +1,5 @@
 const router = require("express").Router();
+// route: /api/users
 
 // get route for all users
 router.get("/", (req, res) => {

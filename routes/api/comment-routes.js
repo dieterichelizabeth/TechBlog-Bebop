@@ -1,4 +1,5 @@
 const router = require("express").Router();
+// route: api/comments
 
 // get route for all comments
 router.get("/", (req, res) => {
