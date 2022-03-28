@@ -31,6 +31,14 @@ p {
   margin-right: 30px;
 }
 
+.postCard {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 40px;
+  background-color: var(--cardBackground-color);
+  border: 1px solid var(--cardBorder-color);
+}
+
 /* STYLES TO LANDING PAGE */
 h1 {
   font-size: 50px;
@@ -71,10 +79,21 @@ a {
   background-size: cover;
 }
 
-.postCard {
-  width: 80%;
-  margin-left: 10%;
+/* STYLES TO DASHBOARD */
+.dashboard {
+  height: 100vh;
+  /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
+  background-image: url(./images/general.jpg);
+  background-size: cover;
+}
+
+.newPost {
+  height: 40px;
+  width: 50%;
   margin-top: 40px;
-  background-color: var(--cardBackground-color);
-  border: 1px solid var(--cardBorder-color);
+  margin-left: 25%;
+  color: white;
+  background-color: var(--buttonBackground-color);
+  border: 1px solid var(--buttonBorder-color);
+  border-radius: 15px;
 }
