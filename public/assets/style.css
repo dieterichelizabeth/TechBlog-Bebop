@@ -25,10 +25,51 @@ p {
   text-align: center;
 }
 
+.timeStamp {
+  font-size: 15px;
+  text-align: left;
+  margin-left: 30px;
+}
+
 .author {
-  font-size: 10px;
+  font-size: 15px;
   text-align: right;
   margin-right: 30px;
+}
+
+.iconsBar {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.deletebutton {
+  height: 50px;
+  width: 50px;
+  background-color: #df10108d;
+  border-radius: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.editbutton {
+  height: 50px;
+  width: 50px;
+  background-color: #ffffffc0;
+  border-radius: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.commentbutton {
+  height: 50px;
+  width: 50px;
+  background-color: #9ca0af8d;
+  border-radius: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .postCard {
@@ -37,6 +78,38 @@ p {
   margin-top: 40px;
   background-color: var(--cardBackground-color);
   border: 1px solid var(--cardBorder-color);
+}
+
+.postTitle {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 40px;
+  background-color: var(--cardBackground-color);
+  border: 1px solid var(--cardBorder-color);
+}
+
+.postTitle h3 {
+  font-family: "Raleway", sans-serif;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.commentBody,
+.postBody {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 40px;
+  background-color: var(--cardBackground-color);
+  border: 1px solid var(--cardBorder-color);
+}
+
+.newPost,
+.dashboard,
+.singlePost {
+  height: 100vh;
+  /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
+  background-image: url(./images/general.jpg);
+  background-size: cover;
 }
 
 /* STYLES TO LANDING PAGE */
@@ -80,14 +153,19 @@ a {
 }
 
 /* STYLES TO DASHBOARD */
-.dashboard {
-  height: 100vh;
-  /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
-  background-image: url(./images/general.jpg);
-  background-size: cover;
+.newPostButton {
+  height: 40px;
+  width: 50%;
+  margin-top: 40px;
+  margin-left: 25%;
+  color: white;
+  background-color: var(--buttonBackground-color);
+  border: 1px solid var(--buttonBorder-color);
+  border-radius: 15px;
 }
 
-.newPost {
+/* STYLES TO NEW POST */
+.addPost {
   height: 40px;
   width: 50%;
   margin-top: 40px;

@@ -18,6 +18,10 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/1e188ab330.js"
+      crossorigin="anonymous"
+    ></script>
     <title>TechBlog Bebop</title>
   </head>
   <body>
@@ -91,7 +95,8 @@
         <p class="author">Created by: Spike</p>
       </div>
     </section>
-    <!-- HOME PAGE -->
+
+    <!-- DASHBOARD -->
     <section id="dashboard" class="dashboard">
       <!-- Nav Bar -->
       <nav>
@@ -138,7 +143,99 @@
         </p>
         <p class="author">Created by: Spike</p>
       </div>
-      <button class="newPost">Add New Post</button>
+      <button class="newPostButton">Add New Post</button>
+    </section>
+
+    <!-- NEW POST -->
+    <section id="newPost" class="newPost">
+      <!-- Nav Bar -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#homepage">Home</a>
+          </li>
+          <li>
+            <a href="#dashboard"> Dashboard</a>
+          </li>
+          <li>
+            <a href="#sessionTimeout"> Log Out</a>
+          </li>
+        </ul>
+      </nav>
+      <h2>New Post</h2>
+      <div class="postTitle">
+        <h3>Enter your Post Title Here</h3>
+      </div>
+      <div class="postBody">
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed dolore
+          debitis, tempora atque recusandae autem dolorum nostrum voluptates
+          aliquam quas nihil placeat eos veritatis dignissimos harum porro ipsa
+          excepturi explicabo!
+        </p>
+      </div>
+      <button class="addPost">Post to Dashboard</button>
+    </section>
+
+    <!-- ONE POST EXAMPLE WITH COMMENT -->
+    <section class="singlePost">
+      <!-- Nav Bar -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#homepage">Home</a>
+          </li>
+          <li>
+            <a href="#dashboard"> Dashboard</a>
+          </li>
+          <li>
+            <a href="#sessionTimeout"> Log Out</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="postTitle">
+        <h3>Post Title: jvifoajeiwpoj</h3>
+      </div>
+      <div class="postBody">
+        <p>
+          Post body: orem ipsum dolor sit, amet consectetur adipisicing elit.
+          Sed dolore debitis, tempora atque recusandae autem dolorum nostrum
+          voluptates aliquam quas nihil placeat eos veritatis dignissimos harum
+          porro ipsa excepturi explicabo!
+        </p>
+        <div class="iconsBar">
+          <p class="author">Created by: Spike</p>
+          <p class="timeStamp">Monday, Mar 28 2022</p>
+          <button class="editbutton">
+            <i class="fa-solid fa-pen-to-square fa-2x"></i>
+          </button>
+          <button class="deletebutton">
+            <i class="fa-solid fa-trash-can fa-2x"></i>
+          </button>
+          <button class="commentbutton">
+            <i class="fa-solid fa-message fa-2x"></i>
+          </button>
+        </div>
+      </div>
+      <h2>Comments</h2>
+      <div class="commentBody">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
+          laboriosam earum voluptates facere iste mollitia molestias,
+          voluptatibus accusantium? Cupiditate, suscipit veritatis ad repellat
+          pariatur dolore velit quas provident illo mollitia.
+        </p>
+        <div class="iconsBar">
+          <p class="author">Created by: Spike</p>
+          <p class="timeStamp">Monday, Mar 28 2022</p>
+          <button class="editbutton">
+            <i class="fa-solid fa-pen-to-square fa-2x"></i>
+          </button>
+          <button class="deletebutton">
+            <i class="fa-solid fa-trash-can fa-2x"></i>
+          </button>
+        </div>
+      </div>
     </section>
   </body>
 </html>
