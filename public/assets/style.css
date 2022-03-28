@@ -9,6 +9,26 @@
 
 h2 {
   font-family: "Roboto Slab", serif;
+  text-align: center;
+}
+
+p {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.cardTitle {
+  font-family: "Raleway", sans-serif;
+  display: block;
+  text-align: center;
+}
+
+.author {
+  font-size: 10px;
+  text-align: right;
+  margin-right: 30px;
 }
 
 /* STYLES TO LANDING PAGE */
@@ -49,4 +69,12 @@ a {
   /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
   background-image: url(./images/general.jpg);
   background-size: cover;
+}
+
+.postCard {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 40px;
+  background-color: var(--cardBackground-color);
+  border: 1px solid var(--cardBorder-color);
 }
