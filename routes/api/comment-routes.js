@@ -43,10 +43,10 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// post a new comment
 router.post("/", (req, res) => {
   // expects {"body": "Awesome post!", "user_id": "1", "post_id": "2"}
 
+  // post a new comment
   Comment.create(req.body)
     .then((commentData) => res.status(200).json(commentData))
     .catch((err) => {
