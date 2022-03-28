@@ -2,11 +2,12 @@ const router = require("express").Router();
 const { Post } = require("../../models");
 
 // ROUTE: api/posts
+// GET AND DELETE ROUTES COMPLETE
 
 router.get("/", (req, res) => {
   // get all posts
   Post.findAll()
-    .then((postData) => res.json(postData))
+    .then((allPosts) => res.json(allPosts))
     // if internal server error, inform post
     .catch((err) => {
       console.log(err);
@@ -23,16 +24,16 @@ router.get("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((postData) => {
+    .then((onePost) => {
       // if id not found, inform the user
-      if (!postData) {
+      if (!onePost) {
         res.status(404).json({
           message: "Sorry, the post you are searching for does not exist",
         });
         return;
       }
       // else, display the post
-      res.json(postData);
+      res.json(onePost);
     })
     // if internal server error, inform the user
     .catch((err) => {
@@ -52,7 +53,7 @@ router.post("/", (req, res) => {
     body: req.body.body,
     post_id: req.body.post_id,
   })
-    .then((postData) => res.status(200).json(postData))
+    .then((newPost) => res.status(200).json(newPost))
     .catch((err) => {
       console.log(err);
       res
@@ -68,16 +69,16 @@ router.put("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((postData) => {
+    .then((updatedPost) => {
       // if id not found, inform the user
-      if (!postData) {
+      if (!updatedPost) {
         res.status(404).json({
           message: "Sorry, the post you are searching for does not exist",
         });
         return;
       }
       // else, inform completed
-      res.status(200).json(postData);
+      res.status(200).json(updatedPost);
       console.log("post updated!");
     })
     // if internal server error, inform the user
@@ -97,16 +98,16 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((postData) => {
+    .then((deletedPost) => {
       // if id not found, inform the user
-      if (!postData) {
+      if (!deletedPost) {
         res.status(404).json({
           message: "Sorry, the post you are searching for does not exist",
         });
         return;
       }
       // else, inform completed
-      res.status(200).json(postData);
+      res.status(200).json(deletedPost);
       console.log("post deleted!");
     })
     // if internal server error, inform the user

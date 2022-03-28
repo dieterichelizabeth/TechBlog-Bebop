@@ -2,11 +2,12 @@ const router = require("express").Router();
 const { Comment } = require("../../models");
 
 // ROUTE: /api/comments
+// GET AND DELETE ROUTES COMPELTE
 
 router.get("/", (req, res) => {
   // get all comments
   Comment.findAll()
-    .then((commentData) => res.json(commentData))
+    .then((allcomments) => res.json(allcomments))
     // if internal server error, inform user
     .catch((err) => {
       console.log(err);
@@ -23,16 +24,16 @@ router.get("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((commentData) => {
+    .then((oneComment) => {
       // if id not found, inform user
-      if (!commentData) {
+      if (!oneComment) {
         res.status(404).json({
           message: "Sorry, the comment you are searching for does not exist",
         });
         return;
       }
       // else, display the comment
-      res.json(commentData);
+      res.json(oneComment);
     })
     // if internal server error, inform user
     .catch((err) => {
@@ -48,7 +49,7 @@ router.post("/", (req, res) => {
 
   // post a new comment
   Comment.create(req.body)
-    .then((commentData) => res.status(200).json(commentData))
+    .then((newComment) => res.status(200).json(newComment))
     .catch((err) => {
       console.log(err);
       res
@@ -66,16 +67,16 @@ router.put("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((commentData) => {
+    .then((updatedComment) => {
       // if id not found, inform user
-      if (!commentData) {
+      if (!updatedComment) {
         res.status(404).json({
           message: "Sorry, the comment you are searching for does not exist",
         });
         return;
       }
       // else, inform completed
-      res.status(200).json(commentData);
+      res.status(200).json(updatedComment);
       console.log("Comment updated!");
     })
     // if internal server error, inform user
@@ -94,16 +95,16 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((commentData) => {
+    .then((deletedComment) => {
       // if id not found, inform user
-      if (!commentData) {
+      if (!deletedComment) {
         res.status(404).json({
           message: "Sorry, the comment you are searching for does not exist",
         });
         return;
       }
       // else, inform completed
-      res.status(200).json(commentData);
+      res.status(200).json(deletedComment);
       console.log("Comment deleted!");
     })
     // if internal server error, inform user

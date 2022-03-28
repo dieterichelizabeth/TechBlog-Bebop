@@ -2,11 +2,12 @@ const router = require("express").Router();
 const { User } = require("../../models");
 
 // ROUTE : /api/users
+// GET AND DELETE ROUTES COMPLETE
 
 router.get("/", (req, res) => {
   // get all users
   User.findAll()
-    .then((userData) => res.json(userData))
+    .then((allUsers) => res.json(allUsers))
     // if internal server error, inform user
     .catch((err) => {
       console.log(err);
@@ -23,16 +24,16 @@ router.get("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((userData) => {
+    .then((oneUser) => {
       // if id not found, inform user
-      if (!userData) {
+      if (!oneUser) {
         res.status(404).json({
           message: "Sorry, the user you are searching for does not exist",
         });
         return;
       }
       // else, display the user
-      res.json(userData);
+      res.json(oneUser);
     })
     // if internal server error, inform user
     .catch((err) => {
@@ -51,7 +52,7 @@ router.post("/", (req, res) => {
     username: req.body.username,
     userPassword: req.body.password,
   })
-    .then((userData) => res.status(200).json(userData))
+    .then((newUser) => res.status(200).json(newUser))
     .catch((err) => {
       console.log(err);
       res
@@ -69,16 +70,16 @@ router.put("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((userData) => {
+    .then((updatedUser) => {
       // if id not found, inform user
-      if (!userData) {
+      if (!updatedUser) {
         res.status(404).json({
           message: "Sorry, the user you are searching for does not exist",
         });
         return;
       }
       // else, inform completed
-      res.status(200).json(userData);
+      res.status(200).json(updatedUser);
       console.log("User updated!");
     })
     // if internal server error, inform user
@@ -97,16 +98,16 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((userData) => {
+    .then((deletedUser) => {
       // if id not found, inform user
-      if (!userData) {
+      if (!deletedUser) {
         res.status(404).json({
           message: "Sorry, the user you are searching for does not exist",
         });
         return;
       }
       // else, inform completed
-      res.status(200).json(userData);
+      res.status(200).json(deletedUser);
       console.log("User deleted!");
     })
     // if internal server error, inform user
