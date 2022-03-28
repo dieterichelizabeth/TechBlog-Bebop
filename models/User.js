@@ -28,7 +28,7 @@ User.init(
     createdAt: false,
     updatedAt: false,
     freezeTableName: true,
-    modelName: "user",
+    modelName: "User",
   }
 );
 

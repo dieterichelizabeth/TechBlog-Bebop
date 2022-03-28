@@ -1,29 +1,121 @@
 const router = require("express").Router();
-// route: api/posts
+const { Post } = require("../../models");
 
-// get route for all posts
+// ROUTE: api/posts
+
 router.get("/", (req, res) => {
-  console.log("gets all posts");
+  // get all posts
+  Post.findAll()
+    .then((postData) => res.json(postData))
+    // if internal server error, inform post
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "Something has gone wrong, please try again" });
+    });
 });
 
-// get route for one post
 router.get("/:id", (req, res) => {
-  console.log("get one post");
+  // get one post (by id)
+  Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((postData) => {
+      // if id not found, inform the user
+      if (!postData) {
+        res.status(404).json({
+          message: "Sorry, the post you are searching for does not exist",
+        });
+        return;
+      }
+      // else, display the post
+      res.json(postData);
+    })
+    // if internal server error, inform the user
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "Something has gone wrong, please try again" });
+    });
 });
 
-// post route for a new post
 router.post("/", (req, res) => {
-  console.log("post one post");
+  // expects {"title": "My First Post!", "body": "This is my first post", "post_id": 1}
+
+  // post a new post
+  Post.create({
+    title: req.body.title,
+    body: req.body.body,
+    post_id: req.body.post_id,
+  })
+    .then((postData) => res.status(200).json(postData))
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "Something has gone wrong, please try again" });
+    });
 });
 
-// update route for one post
 router.put("/:id", (req, res) => {
-  console.log("update one post");
+  // update one post (by id)
+  Post.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((postData) => {
+      // if id not found, inform the user
+      if (!postData) {
+        res.status(404).json({
+          message: "Sorry, the post you are searching for does not exist",
+        });
+        return;
+      }
+      // else, inform completed
+      res.status(200).json(postData);
+      console.log("post updated!");
+    })
+    // if internal server error, inform the user
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "Something has gone wrong, please try again" });
+    });
 });
 
 // delete route for one post
 router.delete("/:id", (req, res) => {
-  console.log("delete one post");
+  // delete one post (by id)
+  Post.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((postData) => {
+      // if id not found, inform the user
+      if (!postData) {
+        res.status(404).json({
+          message: "Sorry, the post you are searching for does not exist",
+        });
+        return;
+      }
+      // else, inform completed
+      res.status(200).json(postData);
+      console.log("post deleted!");
+    })
+    // if internal server error, inform the user
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "Something has gone wrong, please try again" });
+    });
 });
 
 module.exports = router;

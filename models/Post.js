@@ -32,6 +32,9 @@ Post.init(
   {
     // configuration
     sequelize,
+    timestamps: false,
+    createdAt: false,
+    updatedAt: false,
     freezeTableName: true,
     modelName: "post",
   }
