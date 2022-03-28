@@ -1,0 +1,52 @@
+/* Utilities */
+:root {
+  --cardBackground-color: #232b478d;
+  --cardBorder-color: #323d64;
+  --buttonBackground-color: #4a86e8ff;
+  --buttonBorder-color: #595959;
+  color: white;
+}
+
+h2 {
+  font-family: "Roboto Slab", serif;
+}
+
+/* STYLES TO LANDING PAGE */
+h1 {
+  font-size: 50px;
+  margin-top: 500px;
+  margin-left: 80px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.landingpage {
+  height: 100vh;
+  /* Image by Javier Miranda: https://unsplash.com/photos/Jn2EaLLYZfY */
+  background-image: url(./images/landingpage.jpg);
+  background-size: cover;
+}
+
+/* STYLES TO NAV BAR */
+nav {
+  text-align: right;
+  margin-right: 40px;
+}
+
+nav li {
+  display: inline;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px;
+}
+
+/* STYLES TO HOME PAGE */
+.homepage {
+  height: 100vh;
+  /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
+  background-image: url(./images/general.jpg);
+  background-size: cover;
+}
