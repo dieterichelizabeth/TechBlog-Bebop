@@ -199,7 +199,6 @@ a {
 /* STYLES TO LOG IN*/
 .login {
   height: 100vh;
-  /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
   background-image: url(./images/signIn.jpg);
   background-size: cover;
 }
@@ -246,6 +245,7 @@ a {
   border-radius: 15px;
 }
 
+/* STYLES TO SESSION TIMEOUT */
 .sessionTimeout {
   height: 100vh;
   /* Image by NASA: https://unsplash.com/photos/Yj1M5riCKk4 */
