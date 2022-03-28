@@ -221,6 +221,7 @@ a {
 .signUpUsername,
 .loginUsername {
   font-family: "Raleway", sans-serif;
+  font-size: 30px;
   width: 100%;
   background-color: var(--cardBackground-color);
   border: 1px solid var(--cardBorder-color);
@@ -228,6 +229,7 @@ a {
 
 .loginPassword,
 .signUpPassword {
+  font-size: 30px;
   width: 100%;
   background-color: var(--cardBackground-color);
   border: 1px solid var(--cardBorder-color);
@@ -242,4 +244,17 @@ a {
   background-color: var(--buttonBackground-color);
   border: 1px solid var(--buttonBorder-color);
   border-radius: 15px;
+}
+
+.sessionTimeout {
+  height: 100vh;
+  /* Image by NASA: https://unsplash.com/photos/Yj1M5riCKk4 */
+  background-image: url(./images/timeOut.jpg);
+  background-size: cover;
+}
+
+.sessionTimeout h1 {
+  margin-top: 250px;
+  text-align: right;
+  margin-right: 150px;
 }
