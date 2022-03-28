@@ -195,3 +195,51 @@ a {
   border: 1px solid var(--buttonBorder-color);
   border-radius: 15px;
 }
+
+/* STYLES TO LOG IN*/
+.login {
+  height: 100vh;
+  /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
+  background-image: url(./images/signIn.jpg);
+  background-size: cover;
+}
+
+.formsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.signUpForm,
+.loginForm {
+  margin-top: 250px;
+  width: 20%;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.signUpUsername,
+.loginUsername {
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  background-color: var(--cardBackground-color);
+  border: 1px solid var(--cardBorder-color);
+}
+
+.loginPassword,
+.signUpPassword {
+  width: 100%;
+  background-color: var(--cardBackground-color);
+  border: 1px solid var(--cardBorder-color);
+  margin-left: 0px;
+}
+
+.signInButton,
+.signUpButton {
+  height: 30px;
+  width: 100%;
+  color: white;
+  background-color: var(--buttonBackground-color);
+  border: 1px solid var(--buttonBorder-color);
+  border-radius: 15px;
+}
