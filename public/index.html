@@ -163,11 +163,12 @@
         </ul>
       </nav>
       <h2>New Post</h2>
+      <!-- Form to enter post information -->
       <div class="postTitle">
-        <h3>Enter your Post Title Here</h3>
+        <h3 id="postTitle">Enter your Post Title Here</h3>
       </div>
       <div class="postBody">
-        <p>
+        <p id="postBody">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed dolore
           debitis, tempora atque recusandae autem dolorum nostrum voluptates
           aliquam quas nihil placeat eos veritatis dignissimos harum porro ipsa
@@ -218,7 +219,7 @@
         </div>
       </div>
       <h2>Comments</h2>
-      <div class="commentBody">
+      <div id="commentbody" class="commentBody">
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
           laboriosam earum voluptates facere iste mollitia molestias,
@@ -235,6 +236,54 @@
             <i class="fa-solid fa-trash-can fa-2x"></i>
           </button>
         </div>
+      </div>
+    </section>
+
+    <!-- ONE POST EXAMPLE WITH COMMENT FORM -->
+    <section class="singlePost">
+      <!-- Nav Bar -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#homepage">Home</a>
+          </li>
+          <li>
+            <a href="#dashboard"> Dashboard</a>
+          </li>
+          <li>
+            <a href="#sessionTimeout"> Log Out</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="postTitle">
+        <h3>Post Title: jvifoajeiwpoj</h3>
+      </div>
+      <div class="postBody">
+        <p>
+          Post body: orem ipsum dolor sit, amet consectetur adipisicing elit.
+          Sed dolore debitis, tempora atque recusandae autem dolorum nostrum
+          voluptates aliquam quas nihil placeat eos veritatis dignissimos harum
+          porro ipsa excepturi explicabo!
+        </p>
+        <div class="iconsBar">
+          <p class="author">Created by: Spike</p>
+          <p class="timeStamp">Monday, Mar 28 2022</p>
+          <button class="editbutton">
+            <i class="fa-solid fa-pen-to-square fa-2x"></i>
+          </button>
+          <button class="deletebutton">
+            <i class="fa-solid fa-trash-can fa-2x"></i>
+          </button>
+          <button class="commentbutton">
+            <i class="fa-solid fa-message fa-2x"></i>
+          </button>
+        </div>
+      </div>
+      <!-- COMMENT FORM EXAMPLE -->
+      <h2>Comments</h2>
+      <div class="newcommentBody">
+        <p id="commentbody">Enter your comment here!</p>
+        <button class="commentsubmit">Submit</button>
       </div>
     </section>
   </body>
