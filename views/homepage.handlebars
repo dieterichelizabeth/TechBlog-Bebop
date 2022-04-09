@@ -4,13 +4,17 @@
   <nav>
     <ul>
       <li>
-        <a href="/home">Home</a>
+        <a href="/homepage">Home</a>
       </li>
       <li>
         <a href="/dashboard"> Dashboard</a>
       </li>
       <li>
-        <a href="/login"> Log in</a>
+        {{#if loggedIn}}
+          <button id="logoutButton" class="btn-no-style">Log Out</button>
+        {{else}}
+          <a href="/login">Log In</a>
+        {{/if}}
       </li>
     </ul>
   </nav>
@@ -27,3 +31,7 @@
     <p class="author">Created by: Spike</p>
   </div>
 </div>
+
+{{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+{{/if}}

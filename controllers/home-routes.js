@@ -1,30 +1,50 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Post, User } = require("../models");
-const { route } = require("./api");
+const { Post, User, Comment } = require("../models");
 
 // Render the landing-page
 router.get("/", (req, res) => {
-  res.render("landing-page");
+  res.render("landing-page", { loggedIn: req.session.loggedIn });
 });
 
 // Render the homepage
 router.get("/homepage", (req, res) => {
-  res.render("homepage");
+  Post.findAll({
+    attributes: ["id", "title", "body", "created_at"],
+  })
+    .then((allPosts) => {
+      const posts = allPosts.map((post) => post.get({ plain: true }));
+
+      res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // Render the single-post page
 router.get("/post/:id", (req, res) => {
-  res.render("single-post");
+  res.render("single-post", { loggedIn: req.session.loggedIn });
 });
 
 // Render the user dashboard
 router.get("/user/:id", (req, res) => {
-  res.render("dashboard");
+  if (req.session.loggedIn) {
+    res.render("dashboard", { loggedIn: req.session.loggedIn });
+    return;
+  }
+
+  res.render("login");
 });
 
 // Render the login/signup page
 router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/homepage", { loggedIn: req.session.loggedIn });
+    return;
+  }
+
   res.render("login");
 });
 

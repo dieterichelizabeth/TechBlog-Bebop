@@ -1,5 +1,3 @@
-console.log("sign up form listening");
-
 async function signupFormHandler(event) {
   event.preventDefault();
 
@@ -7,8 +5,6 @@ async function signupFormHandler(event) {
   const userPassword = document
     .querySelector("#signupUserPassword")
     .value.trim();
-
-  console.log(username, userPassword);
 
   if (username && userPassword) {
     const response = await fetch("/api/users", {
