@@ -7,6 +7,10 @@
   color: white;
 }
 
+body {
+  background-color: #323d64;
+}
+
 h2 {
   font-family: "Roboto Slab", serif;
   text-align: center;
@@ -129,6 +133,8 @@ p {
   height: 100vh;
   /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
   background-image: url(../images/general.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -144,13 +150,16 @@ h1 {
   height: 100vh;
   /* Image by Javier Miranda: https://unsplash.com/photos/Jn2EaLLYZfY */
   background-image: url(../images/landingpage.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
 /* STYLES TO NAV BAR */
 nav {
   text-align: right;
-  margin-right: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
 }
 
 nav li {
@@ -169,6 +178,8 @@ a {
   height: 100vh;
   /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
   background-image: url(../images/general.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -200,6 +211,8 @@ a {
 .login {
   height: 100vh;
   background-image: url(../images/signIn.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -250,6 +263,8 @@ a {
   height: 100vh;
   /* Image by NASA: https://unsplash.com/photos/Yj1M5riCKk4 */
   background-image: url(../images/timeOut.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
