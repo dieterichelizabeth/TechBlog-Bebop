@@ -83,13 +83,35 @@ router.get("/post/:id", (req, res) => {
 });
 
 // Render the user dashboard
-router.get("/user/:id", (req, res) => {
-  if (req.session.loggedIn) {
-    res.render("dashboard", { loggedIn: req.session.loggedIn });
-    return;
-  }
+router.get("/dashboard", (req, res) => {
+  // if (req.session.loggedIn) {
+  const userId = req.session.user_id;
 
-  res.render("login");
+  User.findOne({
+    where: {
+      id: userId,
+    },
+    attributes: ["username"],
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "title", "body", "created_at"],
+        include: {
+          model: Comment,
+          attributes: ["body", "user_id", "post_id", "created_at"],
+        },
+      },
+    ],
+  }).then((dbuserData) => {
+    // serialize the data
+    const user = dbuserData.get({ plain: true });
+
+    res.render("dashboard", { user, loggedIn: req.session.loggedIn });
+    return;
+  });
+  // }
+
+  // res.render("login");
 });
 
 // Render the login/signup page
