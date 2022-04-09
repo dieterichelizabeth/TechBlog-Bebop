@@ -5,7 +5,6 @@ class User extends Model {}
 
 User.init(
   {
-    // collumn definitions
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -24,11 +23,9 @@ User.init(
   {
     // configuration
     sequelize,
-    timestamps: false,
-    createdAt: false,
-    updatedAt: false,
     freezeTableName: true,
-    modelName: "User",
+    underscored: true,
+    modelName: "user",
   }
 );
 

@@ -5,7 +5,6 @@ class Comment extends Model {}
 
 Comment.init(
   {
-    //collumn definitions
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -36,10 +35,8 @@ Comment.init(
   {
     // configuration
     sequelize,
-    timestamps: false,
-    createdAt: false,
-    updatedAt: false,
     freezeTableName: true,
+    underscored: true,
     modelName: "comment",
   }
 );

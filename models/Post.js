@@ -5,7 +5,6 @@ class Post extends Model {}
 
 Post.init(
   {
-    // collumn definitions
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -32,10 +31,8 @@ Post.init(
   {
     // configuration
     sequelize,
-    timestamps: false,
-    createdAt: false,
-    updatedAt: false,
     freezeTableName: true,
+    underscored: true,
     modelName: "post",
   }
 );
