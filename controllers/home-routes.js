@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 });
 
 // Render the homepage
-router.get("/home", (req, res) => {
+router.get("/homepage", (req, res) => {
   res.render("homepage");
 });
 

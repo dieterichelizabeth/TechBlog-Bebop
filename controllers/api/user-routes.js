@@ -44,6 +44,12 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   // expects {"username": "Spike", "password": "12345"}
 
+  console.log(
+    "THIS IS THE REQUEST -----------",
+    req.body.username,
+    req.body.userPassword
+  );
+
   User.create({
     username: req.body.username,
     userPassword: req.body.userPassword,
@@ -55,6 +61,7 @@ router.post("/", (req, res) => {
         req.session.loggedIn = true;
 
         res.json(newUser);
+        console.log("THIS IS THE RESPONSE -----------", newUser);
       });
     })
     .catch((err) => {
