@@ -18,18 +18,49 @@
     <div class="loginForm">
       <h2>Login</h2>
       <div>
-        <h3 class="loginUsername">Username</h3>
-        <p class="loginPassword">Password</p>
-        <button class="signInButton">Sign In</button>
+        <form id="login" action="">
+          <label>Username</label>
+          <input
+            class="loginUsername"
+            placeholder="Username"
+            id="username"
+            required
+          />
+          <label>Password</label>
+          <input
+            class="loginPassword"
+            placeholder="Password"
+            type="password"
+            id="userPassword"
+          />
+          <button id="login" class="signInButton">Sign In</button>
+        </form>
       </div>
     </div>
     <div class="signUpForm">
       <h2>Sign Up</h2>
       <div>
-        <h3 class="signUpUsername">Username</h3>
-        <p class="signUpPassword">Password</p>
-        <button class="signUpButton">Sign Up</button>
+        <form id="signup" action="">
+          <label>Username</label>
+          <input
+            id="username"
+            class="signUpUsername"
+            type="text"
+            placeholder="Username"
+          />
+          <label for="">Password</label>
+          <input
+            id="userPassword"
+            class="signUpPassword"
+            type="text"
+            placeholder="Password"
+          />
+          <button id="signup" class="signUpButton" type="submit">Sign Up</button>
+        </form>
       </div>
     </div>
   </div>
 </section>
+
+<script src="/javascript/login.js"></script>
+<script src="/javascript/signup.js"></script>

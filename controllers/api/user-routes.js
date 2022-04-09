@@ -4,7 +4,9 @@ const { User, Post, Comment } = require("../../models");
 
 // Get all users
 router.get("/", (req, res) => {
-  User.findAll()
+  User.findAll({
+    attributes: { exclude: ["userPassword"] },
+  })
     .then((allUsers) => res.json(allUsers))
     .catch((err) => {
       console.log(err);
@@ -17,6 +19,7 @@ router.get("/", (req, res) => {
 // Get one user (by id)
 router.get("/:id", (req, res) => {
   User.findOne({
+    attributes: { exclude: ["userPassword"] },
     where: {
       id: req.params.id,
     },
@@ -43,13 +46,61 @@ router.post("/", (req, res) => {
 
   User.create({
     username: req.body.username,
-    userPassword: req.body.password,
+    userPassword: req.body.userPassword,
   })
-    .then((newUser) => res.status(200).json(newUser))
+    .then((newUser) => {
+      req.session.save(() => {
+        req.session.user_id = newUser.id;
+        req.session.username = newUser.username;
+        req.session.loggedIn = true;
+
+        res.json(newUser);
+      });
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+// Login
+router.post("/login", (req, res) => {
+  User.findOne({
+    where: {
+      username: req.body.username,
+    },
+  }).then((userLoginData) => {
+    if (!userLoginData) {
+      res.status(404).json({ message: "Invalid usernmae" });
+      return;
+    }
+
+    const validPassword = userLoginData.checkPassword(req.body.userPassword);
+
+    if (!validPassword) {
+      res.status(400).json({ message: "Invalid password" });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userLoginData.id;
+      req.session.username = userLoginData.username;
+      req.session.loggedIn = true;
+
+      res.json({ user: userLoginData });
+    });
+  });
+});
+
+// Logout
+router.post("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 // Destroy one user
