@@ -43,7 +43,43 @@ router.get("/homepage", (req, res) => {
 
 // Render the single-post page
 router.get("/post/:id", (req, res) => {
-  res.render("single-post", { loggedIn: req.session.loggedIn });
+  Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["id", "title", "body", "created_at"],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+      {
+        model: Comment,
+        attributes: ["body", "user_id", "post_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+    ],
+  })
+    .then((singlePost) => {
+      if (!singlePost) {
+        res.status(404).json({ message: "No post found with this id" });
+        return;
+      }
+
+      // serialize the data
+      const post = singlePost.get({ plain: true });
+
+      console.log(post);
+
+      res.render("single-post", { post, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // Render the user dashboard

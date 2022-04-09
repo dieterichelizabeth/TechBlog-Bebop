@@ -19,18 +19,13 @@
     </ul>
   </nav>
   <div class="postTitle">
-    <h3>Post Title: jvifoajeiwpoj</h3>
+    <h3>{{post.title}}</h3>
   </div>
   <div class="postBody">
-    <p>
-      Post body: orem ipsum dolor sit, amet consectetur adipisicing elit. Sed
-      dolore debitis, tempora atque recusandae autem dolorum nostrum voluptates
-      aliquam quas nihil placeat eos veritatis dignissimos harum porro ipsa
-      excepturi explicabo!
-    </p>
+    <p>{{post.body}}</p>
     <div class="iconsBar">
-      <p class="author">Created by: Spike</p>
-      <p class="timeStamp">Monday, Mar 28 2022</p>
+      <p class="author">- {{post.user.username}}</p>
+      <p class="timeStamp">{{post.created_at}}</p>
       <button class="editbutton">
         <i class="fa-solid fa-pen-to-square fa-2x"></i>
       </button>
@@ -43,24 +38,21 @@
     </div>
   </div>
   <h2>Comments</h2>
-  <div id="commentbody" class="commentBody">
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
-      laboriosam earum voluptates facere iste mollitia molestias, voluptatibus
-      accusantium? Cupiditate, suscipit veritatis ad repellat pariatur dolore
-      velit quas provident illo mollitia.
-    </p>
-    <div class="iconsBar">
-      <p class="author">Created by: Spike</p>
-      <p class="timeStamp">Monday, Mar 28 2022</p>
-      <button class="editbutton">
-        <i class="fa-solid fa-pen-to-square fa-2x"></i>
-      </button>
-      <button class="deletebutton">
-        <i class="fa-solid fa-trash-can fa-2x"></i>
-      </button>
+  {{#each post.comments}}
+    <div id="commentbody" class="commentBody">
+      <p>{{body}}</p>
+      <div class="iconsBar">
+        <p class="author">{{user.username}}</p>
+        <p class="timeStamp">{{created_at}}</p>
+        <button class="editbutton">
+          <i class="fa-solid fa-pen-to-square fa-2x"></i>
+        </button>
+        <button class="deletebutton">
+          <i class="fa-solid fa-trash-can fa-2x"></i>
+        </button>
+      </div>
     </div>
-  </div>
+  {{/each}}
 </section>
 
 {{#if loggedIn}}
