@@ -2,6 +2,7 @@ const router = require("express").Router();
 const apiRoutes = require("./api");
 
 // position the api route
+router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
 
 // no route has handled the request
