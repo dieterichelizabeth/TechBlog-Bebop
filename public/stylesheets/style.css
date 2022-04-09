@@ -128,7 +128,7 @@ p {
 .singlePost {
   height: 100vh;
   /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
-  background-image: url(./images/general.jpg);
+  background-image: url(../images/general.jpg);
   background-size: cover;
 }
 
@@ -143,7 +143,7 @@ h1 {
 .landingpage {
   height: 100vh;
   /* Image by Javier Miranda: https://unsplash.com/photos/Jn2EaLLYZfY */
-  background-image: url(./images/landingpage.jpg);
+  background-image: url(../images/landingpage.jpg);
   background-size: cover;
 }
 
@@ -168,7 +168,7 @@ a {
 .homepage {
   height: 100vh;
   /* Image by Federico Beccari: https://unsplash.com/photos/eGJg5iRGlg8 */
-  background-image: url(./images/general.jpg);
+  background-image: url(../images/general.jpg);
   background-size: cover;
 }
 
@@ -199,7 +199,7 @@ a {
 /* STYLES TO LOG IN*/
 .login {
   height: 100vh;
-  background-image: url(./images/signIn.jpg);
+  background-image: url(../images/signIn.jpg);
   background-size: cover;
 }
 
@@ -249,7 +249,7 @@ a {
 .sessionTimeout {
   height: 100vh;
   /* Image by NASA: https://unsplash.com/photos/Yj1M5riCKk4 */
-  background-image: url(./images/timeOut.jpg);
+  background-image: url(../images/timeOut.jpg);
   background-size: cover;
 }
 
