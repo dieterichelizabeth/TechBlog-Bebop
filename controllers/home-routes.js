@@ -11,9 +11,27 @@ router.get("/", (req, res) => {
 router.get("/homepage", (req, res) => {
   Post.findAll({
     attributes: ["id", "title", "body", "created_at"],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+      {
+        model: Comment,
+        attributes: ["body", "user_id", "post_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+    ],
   })
     .then((allPosts) => {
       const posts = allPosts.map((post) => post.get({ plain: true }));
+
+      for (let i = 0; i < posts.length; i++) {
+        console.log(posts[i].comments);
+      }
 
       res.render("homepage", { posts, loggedIn: req.session.loggedIn });
     })
