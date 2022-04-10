@@ -102,9 +102,9 @@ router.get("/dashboard", (req, res) => {
         },
       },
     ],
-  }).then((dbuserData) => {
+  }).then((singleUser) => {
     // serialize the data
-    const user = dbuserData.get({ plain: true });
+    const user = singleUser.get({ plain: true });
 
     res.render("dashboard", { user, loggedIn: req.session.loggedIn });
     return;

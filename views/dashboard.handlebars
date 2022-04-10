@@ -13,18 +13,23 @@
       </li>
     </ul>
   </nav>
-  <h2>Dashboard</h2>
-  <div class="postCard">
-    <a href="#postNumber" class="cardTitle">First Post</a>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed dolore
-      debitis, tempora atque recusandae autem dolorum nostrum voluptates aliquam
-      quas nihil placeat eos veritatis dignissimos harum porro ipsa excepturi
-      explicabo!
-    </p>
-    <p class="author">Created by: Spike</p>
-  </div>
-  <button class="newPostButton">Add New Post</button>
+  <h2>{{user.username}}'s Dashboard</h2>
+  {{#if user.post}}
+    {{#each posts as |post|}}
+      <div class="postCard">
+        <a href="#postNumber" class="cardTitle">{{title}}</a>
+        <p> {{body}} </p>
+        <p class="author"> {{format_date created_at}}</p>
+      </div>
+      <button class="newPostButton">Add New Post</button>
+    {{/each}}
+  {{else}}
+    <div class="postCard">
+      <p>No posts yet, click "Add New Post" to get started!</p>
+    </div>
+    <button class="newPostButton">Add New Post</button>
+  {{/if}}
+
 </section>
 
 <script src="/javascript/logout.js"></script>

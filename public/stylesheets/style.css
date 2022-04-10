@@ -54,27 +54,27 @@ p {
 
 .deletebutton {
   height: 35px;
-  width: 35px;
-  background-color: #df10108d;
-  border-radius: 50px;
+  width: 100px;
+  background-color: #822a2a;
+  border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .editbutton {
   height: 35px;
-  width: 35px;
-  background-color: #ffffffc0;
-  border-radius: 50px;
+  width: 100px;
+  background-color: #4287f5;
+  border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .commentbutton {
   height: 35px;
-  width: 35px;
-  background-color: #9ca0af8d;
-  border-radius: 50px;
+  width: 100px;
+  background-color: #4287f5;
+  border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
 }
