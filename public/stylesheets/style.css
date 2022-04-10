@@ -46,15 +46,15 @@ p {
 
 .iconsBar {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   margin-bottom: 10px;
 }
 
 .deletebutton {
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: 35px;
   background-color: #df10108d;
   border-radius: 50px;
   margin-left: 10px;
@@ -62,8 +62,8 @@ p {
 }
 
 .editbutton {
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: 35px;
   background-color: #ffffffc0;
   border-radius: 50px;
   margin-left: 10px;
@@ -71,8 +71,8 @@ p {
 }
 
 .commentbutton {
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: 35px;
   background-color: #9ca0af8d;
   border-radius: 50px;
   margin-left: 10px;
@@ -105,21 +105,22 @@ p {
   width: 60%;
   margin-left: 20%;
   margin-top: 40px;
-  background-color: var(--cardBackground-color);
-  border: 1px solid var(--cardBorder-color);
+  background-color: #323d64;
+  height: 50px;
 }
 
 .postTitle h3 {
   font-family: "Raleway", sans-serif;
   text-align: left;
   margin-left: 30px;
+  padding-top: 10px;
 }
 
 .commentBody,
 .postBody {
   width: 60%;
   margin-left: 20%;
-  margin-top: 40px;
+  margin-top: 0px;
   background-color: var(--cardBackground-color);
   border: 1px solid var(--cardBorder-color);
 }
@@ -179,6 +180,23 @@ a {
   text-decoration: none;
   font-size: 20px;
   padding: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#logoutButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 10px;
+}
+
+#logoutButton:hover {
+  text-decoration: underline;
 }
 
 /* STYLES TO HOME PAGE */

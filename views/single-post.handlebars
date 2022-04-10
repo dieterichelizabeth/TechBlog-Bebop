@@ -24,31 +24,30 @@
   <div class="postBody">
     <p>{{post.body}}</p>
     <div class="iconsBar">
-      <p class="author">- {{post.user.username}}</p>
-      <p class="timeStamp">{{post.created_at}}</p>
+      <p class="author">{{post.user.username}}</p>
+      <p class="timeStamp">{{format_date post.created_at}}</p>
       <button class="editbutton">
-        <i class="fa-solid fa-pen-to-square fa-2x"></i>
+        <i class="fa-solid fa-pen-to-square fa-lg"></i>
       </button>
       <button class="deletebutton">
-        <i class="fa-solid fa-trash-can fa-2x"></i>
+        <i class="fa-solid fa-trash-can fa-lg"></i>
       </button>
       <button class="commentbutton">
-        <i class="fa-solid fa-message fa-2x"></i>
+        <i class="fa-solid fa-message fa-lg"></i>
       </button>
     </div>
   </div>
   <h2>Comments</h2>
   {{#each post.comments}}
     <div id="commentbody" class="commentBody">
-      <p>{{body}}</p>
+      <p><span class="author">{{user.username}}: </span>{{body}}</p>
       <div class="iconsBar">
-        <p class="author">{{user.username}}</p>
-        <p class="timeStamp">{{created_at}}</p>
+        <p class="timeStamp">{{format_date created_at}}</p>
         <button class="editbutton">
-          <i class="fa-solid fa-pen-to-square fa-2x"></i>
+          <i class="fa-solid fa-pen-to-square fa-lg"></i>
         </button>
         <button class="deletebutton">
-          <i class="fa-solid fa-trash-can fa-2x"></i>
+          <i class="fa-solid fa-trash-can fa-lg"></i>
         </button>
       </div>
     </div>
