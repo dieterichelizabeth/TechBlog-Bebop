@@ -27,6 +27,11 @@ p {
   font-family: "Raleway", sans-serif;
   display: block;
   text-align: center;
+  background-color: #323d64;
+}
+
+.cardTitle:hover {
+  color: aquamarine;
 }
 
 .timeStamp {
@@ -37,8 +42,6 @@ p {
 
 .author {
   font-size: 15px;
-  text-align: right;
-  margin-right: 30px;
 }
 
 .iconsBar {
@@ -83,6 +86,11 @@ p {
   background-color: var(--buttonBackground-color);
   border: 1px solid var(--buttonBorder-color);
   border-radius: 15px;
+}
+
+.post-div {
+  height: 80vh;
+  overflow: scroll;
 }
 
 .postCard {

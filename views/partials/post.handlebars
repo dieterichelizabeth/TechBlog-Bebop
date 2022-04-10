@@ -4,7 +4,7 @@
     <p>
       {{body}}
     </p>
-    <p class="author"> - {{user.username}}</p>
+    <p class="author"> - {{user.username}} {{format_date created_at}}</p>
   </div>
 
   <h2>Comments</h2>
@@ -15,7 +15,7 @@
       </p>
       <div class="iconsBar">
         <p class="author">{{user.username}}</p>
-        <p class="timeStamp">{{created_at}}</p>
+        <p class="timeStamp">{{format_date created_at}}</p>
         <button class="editbutton">
           <i class="fa-solid fa-pen-to-square fa-2x"></i>
         </button>
