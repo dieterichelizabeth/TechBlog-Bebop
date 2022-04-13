@@ -13,7 +13,7 @@
     </ul>
   </nav>
   <div class="postCard">
-    <h2 id="{{user.id}}">Create New Post:</h2>
+    <h2>Create New Post:</h2>
     <div>
       <form id="newPostForm" style="padding: 10px;" action="">
         <label
@@ -44,6 +44,7 @@
       </form>
     </div>
   </div>
+  <p class="post_ref" style="display: none">{{user.id}}</p>
 </section>
 {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
