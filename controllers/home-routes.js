@@ -106,6 +106,8 @@ router.get("/dashboard", (req, res) => {
     // serialize the data
     const user = singleUser.get({ plain: true });
 
+    console.log(user);
+
     res.render("dashboard", { user, loggedIn: req.session.loggedIn });
     return;
   });

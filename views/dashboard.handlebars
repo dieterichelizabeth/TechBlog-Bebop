@@ -14,14 +14,16 @@
     </ul>
   </nav>
   <h2>{{user.username}}'s Dashboard</h2>
-  {{#if user.post}}
-    {{#each posts as |post|}}
+  {{#if user.posts}}
+    {{#each user.posts as |post|}}
       <div class="postCard">
-        <a href="#postNumber" class="cardTitle">{{title}}</a>
-        <p> {{body}} </p>
+        <a href="#postNumber" class="cardTitle">{{post.title}}</a>
+        <p> {{post.body}} </p>
         <p class="author"> {{format_date created_at}}</p>
       </div>
     {{/each}}
+    <a href="/new-post">
+      <button class="newPostButton"> Add New Post</button></a>
   {{else}}
     <div class="postCard">
       <p>No posts yet, click "Add New Post" to get started!</p>
