@@ -21,13 +21,13 @@
         <p> {{body}} </p>
         <p class="author"> {{format_date created_at}}</p>
       </div>
-      <button class="newPostButton">Add New Post</button>
     {{/each}}
   {{else}}
     <div class="postCard">
       <p>No posts yet, click "Add New Post" to get started!</p>
     </div>
-    <button class="newPostButton">Add New Post</button>
+    <a href="/new-post">
+      <button class="newPostButton"> Add New Post</button></a>
   {{/if}}
 
 </section>

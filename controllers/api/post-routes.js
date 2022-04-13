@@ -37,12 +37,12 @@ router.get("/:id", (req, res) => {
 
 // Create a new post
 router.post("/", (req, res) => {
-  // expects {"title": "My First Post!", "body": "This is my first post", "post_id": 1}
+  // expects {"title": "My First Post!", "body": "This is my first post", "user_id": 1}
 
   Post.create({
     title: req.body.title,
     body: req.body.body,
-    post_id: req.body.post_id,
+    user_id: req.body.user_id,
   })
     .then((newPost) => res.status(200).json(newPost))
     .catch((err) => {

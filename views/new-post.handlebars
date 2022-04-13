@@ -1,0 +1,51 @@
+<section id="dashboard" class="dashboard">
+  <nav>
+    <ul>
+      <li>
+        <a href="/homepage">Home</a>
+      </li>
+      <li>
+        <a href="/dashboard"> Dashboard</a>
+      </li>
+      <li>
+        <button id="logoutButton" class="btn-no-style">Log Out</button>
+      </li>
+    </ul>
+  </nav>
+  <div class="postCard">
+    <h2 id="{{user.id}}">Create New Post:</h2>
+    <div>
+      <form id="newPostForm" style="padding: 10px;" action="">
+        <label
+          style="text-align: left; font-size: 25px; margin-bottom: 10px"
+          for="postTitle"
+        >Title: </label>
+        <input
+          id="postTitle"
+          type="text"
+          placeholder="Title"
+          style="width: 100%; min-height: 30px"
+          required
+        />
+        <label
+          style="text-align: left; font-size: 25px; margin-bottom: 10px"
+          for="postBody"
+        >Body: </label>
+        <input
+          id="postBody"
+          type="text"
+          placeholder="Body"
+          style="width: 100%; min-height: 30px"
+          required
+        />
+        <button id="postSubmit" class="newPostButton" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+{{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+{{/if}}
+<script src="/javascript/newPost.js"></script>

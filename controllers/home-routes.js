@@ -114,6 +114,24 @@ router.get("/dashboard", (req, res) => {
   // res.render("login");
 });
 
+// Render the new post form
+router.get("/new-post", (req, res) => {
+  const userId = req.session.user_id;
+
+  User.findOne({
+    where: {
+      id: userId,
+    },
+    attributes: ["id"],
+  }).then((singleUser) => {
+    // serialize the data
+    const user = singleUser.get({ plain: true });
+
+    res.render("new-post", { user, loggedIn: req.session.loggedIn });
+    return;
+  });
+});
+
 // Render the login/signup page
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
