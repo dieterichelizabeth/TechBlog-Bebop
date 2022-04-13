@@ -17,7 +17,7 @@
   {{#if user.posts}}
     {{#each user.posts as |post|}}
       <div class="postCard">
-        <a href="#postNumber" class="cardTitle">{{post.title}}</a>
+        <a href="/post/{{id}}" class="cardTitle">{{post.title}}</a>
         <p> {{post.body}} </p>
         <p class="author"> {{format_date created_at}}</p>
       </div>

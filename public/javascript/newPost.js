@@ -1,5 +1,4 @@
-console.log("now listeneing");
-async function loginFormHandler(event) {
+async function postFormHandler(event) {
   event.preventDefault();
 
   var idEl = document.querySelector(".post_ref");
@@ -27,4 +26,4 @@ async function loginFormHandler(event) {
 }
 document
   .querySelector("#newPostForm")
-  .addEventListener("submit", loginFormHandler);
+  .addEventListener("submit", postFormHandler);

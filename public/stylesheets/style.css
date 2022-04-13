@@ -52,6 +52,12 @@ p {
   margin-bottom: 10px;
 }
 
+.button_container {
+  border: 1px solid #f00;
+  width: 100%;
+  float: right;
+}
+
 .deletebutton {
   height: 35px;
   width: 100px;
@@ -69,15 +75,24 @@ p {
   margin-left: 10px;
   margin-right: 10px;
 }
-
 .commentbutton {
+  height: 40px;
+  width: 50%;
+  margin-top: 5px;
+  margin-left: 25%;
+  color: white;
+  background-color: var(--buttonBackground-color);
+  border: 1px solid var(--buttonBorder-color);
+  border-radius: 15px;
+}
+/* .commentbutton {
   height: 35px;
   width: 100px;
   background-color: #4287f5;
   border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
-}
+} */
 
 .commentsubmit {
   height: 40px;

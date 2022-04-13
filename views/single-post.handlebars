@@ -26,17 +26,15 @@
     <div class="iconsBar">
       <p class="author">{{post.user.username}}</p>
       <p class="timeStamp">{{format_date post.created_at}}</p>
-      <button class="editbutton">
+      <button class="editbutton" style="float: right;">
         Edit
       </button>
-      <button class="deletebutton">
+      <button class="deletebutton" style="float: right;">
         Delete
-      </button>
-      <button class="commentbutton">
-        Comment
       </button>
     </div>
   </div>
+
   <h2>Comments</h2>
   {{#each post.comments}}
     <div id="commentbody" class="commentBody">
@@ -52,7 +50,31 @@
       </div>
     </div>
   {{/each}}
+
+  <div class="postBody">
+    <div>
+      <form id="newcommentForm" style="padding: 10px;" action="">
+        <label
+          style="text-align: left; font-size: 20px;"
+          for="commentBody"
+        >Reply:</label>
+        <input
+          id="commentBody"
+          type="text"
+          placeholder="Add your comment here!"
+          style="width: 100%; min-height: 30px"
+          required
+        />
+        <button class="commentbutton">
+          Add Comment
+        </button>
+      </form>
+    </div>
+  </div>
+
 </section>
+
+<script src="/javascript/comment.js"></script>
 
 {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
