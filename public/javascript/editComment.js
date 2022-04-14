@@ -23,10 +23,10 @@ async function editCommentHandler(event) {
   saveButton.innerHTML = "Save";
   buttonDiv.appendChild(saveButton);
 
-  saveButtonHandler();
+  saveCommentButtonHandler();
 }
 
-function saveButtonHandler() {
+function saveCommentButtonHandler() {
   const saveButton = document.getElementById("saveComment");
   saveButton.addEventListener("click", saveCommentHandler);
 }

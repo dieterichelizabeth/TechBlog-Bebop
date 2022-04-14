@@ -24,10 +24,10 @@ async function editPostHandler(event) {
   saveButton.innerHTML = "Save";
   buttonDiv.appendChild(saveButton);
 
-  saveButtonHandler();
+  savePostButtonHandler();
 }
 
-function saveButtonHandler() {
+function savePostButtonHandler() {
   const saveButton = document.getElementById("savePost");
   saveButton.addEventListener("click", savePostHandler);
 }
