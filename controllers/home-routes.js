@@ -73,18 +73,19 @@ router.get("/post/:id", (req, res) => {
         // serialize the data
         const post = singlePost.get({ plain: true });
 
+        // Add current user property for the user's posts
         if (post.user.id === req.session.user_id) {
           post.currentUser = "true";
         }
 
+        // Add current user property for the user's comments
         for (let i = 0; i < post.comments.length; i++) {
           if (post.comments[i].user_id === req.session.user_id) {
             post.comments[i].currentUser = "true";
           }
         }
 
-        console.log(post);
-        console.log(post.comments);
+        // render the single post page
         res.render("single-post", { post, loggedIn: req.session.loggedIn });
       })
       .catch((err) => {
