@@ -23,6 +23,12 @@ p {
   margin-right: 30px;
 }
 
+.w100 {
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 5%;
+}
+
 .cardTitle {
   font-family: "Raleway", sans-serif;
   display: block;
