@@ -46,14 +46,16 @@
         <div class="iconsBar">
           <p class="author">{{user.username}}:</p>
           <p class="timeStamp">{{format_date created_at}}</p>
-          <div id="{{id}}">
-            <button id="editComment" class="editbutton">
-              Edit
-            </button>
-            <button id="deleteComment" class="deletebutton">
-              Delete
-            </button>
-          </div>
+          {{#if currentUser}}
+            <div id="{{id}}">
+              <button id="editComment" class="editbutton">
+                Edit
+              </button>
+              <button id="deleteComment" class="deletebutton">
+                Delete
+              </button>
+            </div>
+          {{/if}}
         </div>
       </div>
     {{/each}}
