@@ -43,76 +43,80 @@ router.get("/homepage", (req, res) => {
 
 // Render the single-post page
 router.get("/post/:id", (req, res) => {
-  Post.findOne({
-    where: {
-      id: req.params.id,
-    },
-    attributes: ["id", "title", "body", "created_at"],
-    include: [
-      {
-        model: User,
-        attributes: ["id", "username"],
+  if (req.session.loggedIn) {
+    Post.findOne({
+      where: {
+        id: req.params.id,
       },
-      {
-        model: Comment,
-        attributes: ["id", "body", "user_id", "post_id", "created_at"],
-        include: {
+      attributes: ["id", "title", "body", "created_at"],
+      include: [
+        {
           model: User,
-          attributes: ["username"],
+          attributes: ["id", "username"],
         },
-      },
-    ],
-  })
-    .then((singlePost) => {
-      if (!singlePost) {
-        res.status(404).json({ message: "No post found with this id" });
-        return;
-      }
-
-      // serialize the data
-      const post = singlePost.get({ plain: true });
-      console.log(post);
-
-      res.render("single-post", { post, loggedIn: req.session.loggedIn });
+        {
+          model: Comment,
+          attributes: ["id", "body", "user_id", "post_id", "created_at"],
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
+        },
+      ],
     })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+      .then((singlePost) => {
+        if (!singlePost) {
+          res.status(404).json({ message: "No post found with this id" });
+          return;
+        }
+
+        // serialize the data
+        const post = singlePost.get({ plain: true });
+        console.log(post);
+
+        res.render("single-post", { post, loggedIn: req.session.loggedIn });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  } else {
+    res.render("login");
+  }
 });
 
 // Render the user dashboard
 router.get("/dashboard", (req, res) => {
-  // if (req.session.loggedIn) {
-  const userId = req.session.user_id;
+  if (req.session.loggedIn) {
+    const userId = req.session.user_id;
 
-  User.findOne({
-    where: {
-      id: userId,
-    },
-    attributes: ["username"],
-    include: [
-      {
-        model: Post,
-        attributes: ["id", "title", "body", "created_at"],
-        include: {
-          model: Comment,
-          attributes: ["body", "user_id", "post_id", "created_at"],
-        },
+    User.findOne({
+      where: {
+        id: userId,
       },
-    ],
-  }).then((singleUser) => {
-    // serialize the data
-    const user = singleUser.get({ plain: true });
+      attributes: ["username"],
+      include: [
+        {
+          model: Post,
+          attributes: ["id", "title", "body", "created_at"],
+          include: {
+            model: Comment,
+            attributes: ["body", "user_id", "post_id", "created_at"],
+          },
+        },
+      ],
+    }).then((singleUser) => {
+      // serialize the data
+      const user = singleUser.get({ plain: true });
 
-    console.log(user);
+      console.log(user);
 
-    res.render("dashboard", { user, loggedIn: req.session.loggedIn });
-    return;
-  });
-  // }
-
-  // res.render("login");
+      res.render("dashboard", { user, loggedIn: req.session.loggedIn });
+      return;
+    });
+  } else {
+    res.render("login");
+  }
 });
 
 // Render the new post form
