@@ -1,7 +1,5 @@
 async function editCommentHandler(event) {
-  console.log("editing comment");
   const buttonDiv = event.target.parentNode;
-  const commentId = event.target.parentNode.id;
 
   // get the previous comment
   const commentEditor =
@@ -10,6 +8,7 @@ async function editCommentHandler(event) {
 
   // create the text area
   const textarea = document.createElement("textarea");
+  textarea.setAttribute("id", "updatedComment");
   textarea.classList.add("w100");
   textarea.innerHTML = previousComment;
   commentEditor.replaceWith(textarea);
@@ -23,19 +22,41 @@ async function editCommentHandler(event) {
   saveButton.classList.add("editbutton");
   saveButton.innerHTML = "Save";
   buttonDiv.appendChild(saveButton);
-  // pass the save button as an argument to the next function
-  saveCommentHandler();
+
+  saveButtonHandler();
 }
 
-async function saveCommentHandler(event) {
+function saveButtonHandler() {
   const saveButton = document.getElementById("saveComment");
-  saveButton.addEventListener("click", () => {
-    console.log("Saving comment");
-  });
+  saveButton.addEventListener("click", saveCommentHandler);
 }
-// create a function to handle the routes to update the comment w/ event listener
-// route will be similar to the new comment route
-// re-display the single-post page
+
+// Save the new Comment
+async function saveCommentHandler(event) {
+  // get the text area value with updated comment
+  const body = document.querySelector("#updatedComment").value.trim();
+  const id = event.target.parentNode.id;
+  const post_id = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
+  ];
+
+  // create put update and reload of page
+  if (id && body) {
+    const response = await fetch("/api/comments/" + id, {
+      method: "put",
+      body: JSON.stringify({
+        body,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+      document.location.replace("/post/" + post_id);
+    } else {
+      alert(response.statusText);
+    }
+  }
+}
 
 document.querySelectorAll("#editComment").forEach((item) => {
   item.addEventListener("click", editCommentHandler);
