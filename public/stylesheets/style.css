@@ -79,7 +79,6 @@ p {
   height: 40px;
   width: 50%;
   margin-top: 5px;
-  margin-left: 25%;
   color: white;
   background-color: var(--buttonBackground-color);
   border: 1px solid var(--buttonBorder-color);
@@ -138,6 +137,10 @@ p {
   margin-top: 0px;
   background-color: var(--cardBackground-color);
   border: 1px solid var(--cardBorder-color);
+}
+
+.commentBody {
+  margin-top: 10px;
 }
 
 .newcommentBody {
