@@ -51,7 +51,7 @@ router.get("/post/:id", (req, res) => {
     include: [
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["id", "username"],
       },
       {
         model: Comment,
@@ -71,7 +71,6 @@ router.get("/post/:id", (req, res) => {
 
       // serialize the data
       const post = singlePost.get({ plain: true });
-
       console.log(post);
 
       res.render("single-post", { post, loggedIn: req.session.loggedIn });

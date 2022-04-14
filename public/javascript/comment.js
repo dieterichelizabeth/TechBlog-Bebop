@@ -24,6 +24,21 @@ async function commentFormHandler(event) {
     }
   }
 }
+
+async function editPostHandler(event) {
+  console.log("editing post");
+}
+
+async function deletePostHandler(event) {
+  console.log("deleting post");
+}
+
 document
   .querySelector("#newcommentForm")
   .addEventListener("submit", commentFormHandler);
+
+document.querySelector("#editPost").addEventListener("click", editPostHandler);
+
+document
+  .querySelector("#deletePost")
+  .addEventListener("click", deletePostHandler);
