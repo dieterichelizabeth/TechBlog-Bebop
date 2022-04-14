@@ -1,7 +1,3 @@
-async function editCommentHandler(event) {
-  console.log("editing comment");
-}
-
 async function deleteCommentHandler(event) {
   console.log("deleting comment");
 
@@ -26,10 +22,6 @@ async function deleteCommentHandler(event) {
     alert(response.statusText);
   }
 }
-
-document.querySelectorAll("#editComment").forEach((item) => {
-  item.addEventListener("click", editCommentHandler);
-});
 
 document.querySelectorAll("#deleteComment").forEach((item) => {
   item.addEventListener("click", deleteCommentHandler);

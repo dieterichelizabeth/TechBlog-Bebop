@@ -40,8 +40,9 @@
     <h2>Comments</h2>
     {{#each post.comments}}
       <div id="commentbody" class="commentBody">
-        <p><span class="author">{{user.username}}: </span>{{body}}</p>
+        <p class="commentField">{{body}}</p>
         <div class="iconsBar">
+          <p class="author">{{user.username}}:</p>
           <p class="timeStamp">{{format_date created_at}}</p>
           <div id="{{id}}">
             <button id="editComment" class="editbutton">
@@ -80,9 +81,10 @@
 </section>
 
 {{#if post.comments}}
-  <script src="/javascript/commentUpdate.js"></script>
+  <script src="/javascript/deleteComment.js"></script>
+  <script src="/javascript/editComment.js"></script>
 {{/if}}
-<script src="/javascript/comment.js"></script>
+<script src="/javascript/newComment.js"></script>
 <script src="/javascript/post.js"></script>
 
 {{#if loggedIn}}

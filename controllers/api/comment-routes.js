@@ -30,6 +30,29 @@ router.post("/", (req, res) => {
     });
 });
 
+// Update a Comment (by id)
+router.put("/:id", (req, res) => {
+  Comment.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((updatedComment) => {
+      // if Comment not found- inform the user
+      if (!updatedComment) {
+        res.status(404).json({
+          message: "Sorry, the Comment you are searching for does not exist",
+        });
+        return;
+      }
+      res.status(200).json(updatedComment);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 // Destroy one comment (by id)
 router.delete("/:id", (req, res) => {
   Comment.destroy({
