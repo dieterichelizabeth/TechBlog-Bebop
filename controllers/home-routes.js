@@ -72,8 +72,13 @@ router.get("/post/:id", (req, res) => {
 
         // serialize the data
         const post = singlePost.get({ plain: true });
-        console.log(post);
+        // console.log(post);
 
+        if (post.user.id === req.session.user_id) {
+          post.currentUser = "true";
+        }
+
+        console.log(post);
         res.render("single-post", { post, loggedIn: req.session.loggedIn });
       })
       .catch((err) => {

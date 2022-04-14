@@ -28,12 +28,14 @@
       <div class="iconsBar">
         <p class="author">{{post.user.username}}</p>
         <p class="timeStamp">{{format_date post.created_at}}</p>
-        <button id="editPost" class="editbutton" style="float: right;">
-          Edit
-        </button>
-        <button id="deletePost" class="deletebutton" style="float: right;">
-          Delete
-        </button>
+        {{#if post.currentUser}}
+          <button id="editPost" class="editbutton" style="float: right;">
+            Edit
+          </button>
+          <button id="deletePost" class="deletebutton" style="float: right;">
+            Delete
+          </button>
+        {{/if}}
       </div>
     </div>
 
