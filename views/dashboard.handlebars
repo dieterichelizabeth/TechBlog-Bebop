@@ -14,24 +14,25 @@
     </ul>
   </nav>
   <h2>{{user.username}}'s Dashboard</h2>
-  {{#if user.posts}}
-    {{#each user.posts as |post|}}
+  <div class="post-div">
+    {{#if user.posts}}
+      {{#each user.posts as |post|}}
+        <div class="postCard">
+          <a href="/post/{{id}}" class="cardTitle">{{post.title}}</a>
+          <p> {{post.body}} </p>
+          <p class="author"> {{format_date created_at}}</p>
+        </div>
+      {{/each}}
+      <a href="/new-post">
+        <button class="newPostButton"> Add New Post</button></a>
+    {{else}}
       <div class="postCard">
-        <a href="/post/{{id}}" class="cardTitle">{{post.title}}</a>
-        <p> {{post.body}} </p>
-        <p class="author"> {{format_date created_at}}</p>
+        <p>No posts yet, click "Add New Post" to get started!</p>
       </div>
-    {{/each}}
-    <a href="/new-post">
-      <button class="newPostButton"> Add New Post</button></a>
-  {{else}}
-    <div class="postCard">
-      <p>No posts yet, click "Add New Post" to get started!</p>
-    </div>
-    <a href="/new-post">
-      <button class="newPostButton"> Add New Post</button></a>
-  {{/if}}
-
+      <a href="/new-post">
+        <button class="newPostButton"> Add New Post</button></a>
+    {{/if}}
+  </div>
 </section>
 
 <script src="/javascript/logout.js"></script>

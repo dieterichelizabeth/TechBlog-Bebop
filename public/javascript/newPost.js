@@ -1,8 +1,6 @@
 async function postFormHandler(event) {
   event.preventDefault();
 
-  var idEl = document.querySelector(".post_ref");
-  const user_id = idEl.innerHTML;
   const title = document.querySelector("#postTitle").value.trim();
   const body = document.querySelector("#postBody").value.trim();
 
@@ -12,7 +10,6 @@ async function postFormHandler(event) {
       body: JSON.stringify({
         title,
         body,
-        user_id,
       }),
       headers: { "Content-Type": "application/json" },
     });
