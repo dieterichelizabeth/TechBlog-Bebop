@@ -1,4 +1,5 @@
 async function timeout() {
+  // Post request: logout user
   const response = await fetch("/api/users/logout", {
     method: "post",
     headers: { "Content-Type": "application/json" },
@@ -22,6 +23,7 @@ let sessionTracker = function () {
 
   function newTimer() {
     clearTimeout(countDown);
+    // 30 secconds
     countDown = setTimeout(timeout, 30000);
   }
 };

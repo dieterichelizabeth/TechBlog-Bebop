@@ -26,6 +26,7 @@ async function editCommentHandler(event) {
   saveCommentButtonHandler();
 }
 
+// Handle new "coment" button
 function saveCommentButtonHandler() {
   const saveButton = document.getElementById("saveComment");
   saveButton.addEventListener("click", saveCommentHandler);
@@ -40,7 +41,7 @@ async function saveCommentHandler(event) {
     window.location.toString().split("/").length - 1
   ];
 
-  // create put update and reload of page
+  // Put request: Update a comment
   if (id && body) {
     const response = await fetch("/api/comments/" + id, {
       method: "put",
@@ -50,6 +51,7 @@ async function saveCommentHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
 
+    // If okay, return to single post page
     if (response.ok) {
       document.location.replace("/post/" + post_id);
     } else {

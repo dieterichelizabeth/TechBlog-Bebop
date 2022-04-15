@@ -1,3 +1,4 @@
+// Months array
 const month = [
   "Jan",
   "Feb",
@@ -13,6 +14,7 @@ const month = [
   "Dec",
 ];
 
+// Format the date
 module.exports = {
   format_date: (date) => {
     return `${month[date.getMonth()]}, ${new Date(date).getDate()} ${new Date(

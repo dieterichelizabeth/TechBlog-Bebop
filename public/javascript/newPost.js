@@ -1,9 +1,11 @@
 async function postFormHandler(event) {
   event.preventDefault();
 
+  // Define the post title and body
   const title = document.querySelector("#postTitle").value.trim();
   const body = document.querySelector("#postBody").value.trim();
 
+  // Post request: create a new post
   if (title && body) {
     const response = await fetch("/api/posts", {
       method: "post",
@@ -21,6 +23,7 @@ async function postFormHandler(event) {
     }
   }
 }
+
 document
   .querySelector("#newPostForm")
   .addEventListener("submit", postFormHandler);

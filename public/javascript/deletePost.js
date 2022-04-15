@@ -1,8 +1,10 @@
 async function deletePostHandler(event) {
+  // Define the post id
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
 
+  // Delete request: destroy one post
   const response = await fetch("/api/posts/" + id, {
     method: "delete",
     body: JSON.stringify({
@@ -11,6 +13,7 @@ async function deletePostHandler(event) {
     headers: { "Content-Type": "application/json" },
   });
 
+  // If okay, go to dashboard
   if (response.ok) {
     document.location.replace("/dashboard");
   } else {

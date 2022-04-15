@@ -1,4 +1,3 @@
-<!-- ONE POST EXAMPLE WITH COMMENT -->
 <section class="singlePost">
   <!-- Nav Bar -->
   <nav>
@@ -60,6 +59,7 @@
       </div>
     {{/each}}
 
+    <!-- New Comment Form -->
     <div class="postBody" style="margin-top: 20px;">
       <div>
         <form
@@ -84,13 +84,18 @@
   </div>
 </section>
 
-{{#if post.comments}}
+<script src="/javascript/newComment.js"></script>
+
+{{#if post.comments.currentUser}}
   <script src="/javascript/deleteComment.js"></script>
   <script src="/javascript/editComment.js"></script>
+
 {{/if}}
-<script src="/javascript/newComment.js"></script>
-<script src="/javascript/deletePost.js"></script>
-<script src="/javascript/editPost.js"></script>
+
+{{#if post.currentUser}}
+  <script src="/javascript/deletePost.js"></script>
+  <script src="/javascript/editPost.js"></script>
+{{/if}}
 
 {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>

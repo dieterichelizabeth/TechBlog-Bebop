@@ -1,11 +1,13 @@
 async function signupFormHandler(event) {
   event.preventDefault();
 
+  // Define the username and password
   const username = document.querySelector("#signupUsername").value.trim();
   const userPassword = document
     .querySelector("#signupUserPassword")
     .value.trim();
 
+  // Post request: create new user
   if (username && userPassword) {
     const response = await fetch("/api/users", {
       method: "post",

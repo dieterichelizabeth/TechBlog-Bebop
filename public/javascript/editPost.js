@@ -1,6 +1,4 @@
 async function editPostHandler(event) {
-  console.log("editing post");
-
   const buttonDiv = event.target.parentNode;
 
   // get the previous post content
@@ -27,6 +25,7 @@ async function editPostHandler(event) {
   savePostButtonHandler();
 }
 
+// Handle new "save" button
 function savePostButtonHandler() {
   const saveButton = document.getElementById("savePost");
   saveButton.addEventListener("click", savePostHandler);
@@ -40,7 +39,7 @@ async function savePostHandler(event) {
     window.location.toString().split("/").length - 1
   ];
 
-  // post put route
+  // Put request: Update a post
   if (body) {
     const response = await fetch("/api/posts/" + post_id, {
       method: "put",
@@ -50,6 +49,7 @@ async function savePostHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
 
+    // If response okay, return to single post
     if (response.ok) {
       document.location.replace("/post/" + post_id);
     } else {

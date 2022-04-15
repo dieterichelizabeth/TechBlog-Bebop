@@ -13,7 +13,9 @@
       </li>
     </ul>
   </nav>
+
   <h2>{{user.username}}'s Dashboard</h2>
+  <!-- User's Posts -->
   <div class="post-div">
     {{#if user.posts}}
       {{#each user.posts as |post|}}
@@ -23,12 +25,14 @@
           <p class="author"> {{format_date created_at}}</p>
         </div>
       {{/each}}
+      <!-- Create New Post Button -->
       <a href="/new-post">
         <button class="newPostButton"> Add New Post</button></a>
     {{else}}
       <div class="postCard">
         <p>No posts yet, click "Add New Post" to get started!</p>
       </div>
+      <!-- Create New Post Button -->
       <a href="/new-post">
         <button class="newPostButton"> Add New Post</button></a>
     {{/if}}
