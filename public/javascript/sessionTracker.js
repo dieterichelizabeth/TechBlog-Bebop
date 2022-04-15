@@ -23,8 +23,8 @@ let sessionTracker = function () {
 
   function newTimer() {
     clearTimeout(countDown);
-    // 30 secconds
-    countDown = setTimeout(timeout, 30000);
+    // 60 secconds
+    countDown = setTimeout(timeout, 60000);
   }
 };
 
