@@ -85,6 +85,7 @@ router.get("/post/:id", (req, res) => {
           }
         }
 
+        console.log(post.comments);
         // render the single post page
         res.render("single-post", { post, loggedIn: req.session.loggedIn });
       })

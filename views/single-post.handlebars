@@ -86,10 +86,9 @@
 
 <script src="/javascript/newComment.js"></script>
 
-{{#if post.comments.currentUser}}
+{{#if post.comments}}
   <script src="/javascript/deleteComment.js"></script>
   <script src="/javascript/editComment.js"></script>
-
 {{/if}}
 
 {{#if post.currentUser}}

@@ -2,12 +2,12 @@ const { Comment } = require("../models");
 
 const commentdata = [
   {
-    body: "jkefpwjqif jkdla;fjeiwop fj.",
+    body: "Thanks for sharing",
     user_id: 4,
     post_id: 1,
   },
   {
-    body: "dsakklcmdkpq mkdap ewojf mapkdsjfiwo",
+    body: "Already reached level 24, I love this game!",
     user_id: 3,
     post_id: 2,
   },

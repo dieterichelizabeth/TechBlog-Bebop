@@ -81,6 +81,7 @@ p {
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .commentbutton {
   height: 40px;
   width: 50%;
@@ -90,14 +91,6 @@ p {
   border: 1px solid var(--buttonBorder-color);
   border-radius: 15px;
 }
-/* .commentbutton {
-  height: 35px;
-  width: 100px;
-  background-color: #4287f5;
-  border-radius: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-} */
 
 .commentsubmit {
   height: 40px;
@@ -274,7 +267,7 @@ a:hover {
 
 .signUpForm,
 .loginForm {
-  margin-top: 250px;
+  margin-top: 200px;
   width: 20%;
   margin-left: 30px;
   margin-right: 30px;
@@ -287,6 +280,7 @@ a:hover {
   width: 100%;
   background-color: var(--cardBackground-color);
   border: 1px solid var(--cardBorder-color);
+  color: white;
 }
 
 .loginPassword,
@@ -296,6 +290,7 @@ a:hover {
   background-color: var(--cardBackground-color);
   border: 1px solid var(--cardBorder-color);
   margin-left: 0px;
+  color: white;
 }
 
 .signInButton,
@@ -322,4 +317,51 @@ a:hover {
   margin-top: 250px;
   text-align: right;
   margin-right: 150px;
+}
+
+@media screen and (max-width: 768px) {
+  .signUpUsername,
+  .loginUsername {
+    font-size: 15px;
+  }
+
+  .loginPassword,
+  .signUpPassword {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin-right: 100px;
+  }
+}
+
+@media screen and (max-width: 646px) {
+  .iconsBar {
+    display: inline;
+  }
+
+  .deletebutton,
+  .editbutton {
+    float: none;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 503px) {
+  h1 {
+    margin-top: 350px;
+    font-size: 10px;
+    margin-right: 10px;
+  }
+
+  .sessionTimeout h1 {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  a {
+    font-size: 10px;
+  }
 }
