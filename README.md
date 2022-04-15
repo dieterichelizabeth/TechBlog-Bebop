@@ -1,6 +1,6 @@
 # TechBlog-Bebop
 
-14. Model-View-Controller (MVC) Challenge: Tech Blog 🌟 🌚 🌙
+Model-View-Controller (MVC) Tech Blog 🌟 🌚 🌙
 
 “Whatever happens, happens.”
 
