@@ -4,7 +4,15 @@ Model-View-Controller (MVC) Tech Blog 🌟 🌚 🌙
 
 Another Tech Blog- but make it early 2000's + Space themed.
 
-TechBlog Bebop is a CMS-style blog where developers can publish their blog posts and comment on other developers’ posts as well. Users can view the homepage without logging in, however once a user clicks on links in the navigation, or on a post to see its comments, they are prompted to login/sign up. After a user signs in, they are able to create, update, and delete their posts/comments, as well as read other's comments. The application tracks idle time, and will automatically log the user out after 60 seconds of no "click" activity.
+## Table of Contents 🌱
+
+- [Installation Resources](#Installation-Resources)
+- [Run Locally](#Run-Locally)
+- [Lessons Learned](#Lessons-Learned)
+- [Feedback](#Feedback)
+- [Documentation](#Documentation)
+
+TechBlog Bebop is a CMS-style blog where developers can publish their blog posts and comment on other developers’ posts as well. Users can view the homepage without logging in, however once a user clicks on any other links in the navigation, or on a post title to see its comments, they are prompted to login/sign up. After a user signs in, they are able to create, update, and delete their posts/comments, as well as read other's comments. The application tracks idle time, and will automatically log the user out after 60 seconds of no "click" activity.
 
 The app follows the MVC paradigm in its structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. Based on the following user story:
 
@@ -20,7 +28,9 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 
 ![Screen Shot 2022-04-14 at 9 58 02 PM](https://user-images.githubusercontent.com/95142863/163511139-2c7f6e8a-7a13-45e2-b8f4-5b1490c7d373.png)
 
----
+## Demo
+
+https://user-images.githubusercontent.com/95142863/163658600-534c15dd-361c-4b09-82c4-994db5d6bb90.mp4
 
 ## Installation Resources
 
@@ -40,8 +50,6 @@ Check that Mysql is installed
 ```bash
   mysql --version
 ```
-
----
 
 ## Run Locally
 
@@ -91,8 +99,6 @@ Open up your local host in the browser and enjoy!
 http://localhost:3001/
 ```
 
----
-
 ## Lessons Learned
 
 One of the challenges I faced while building this app was setting a time limit on how long a user could be logged in. First, I updated the cookie to expire after a 2 minutes. However, I realized that the goal was to have the session timeout when the USER IS IDLE. I tested the application and found that- even when creating blog posts, commenting, and deleting- the session still expired after two minutes. Therefore, I removed the cookie max-age, and began to work on a javascript function which would specifically track "click" activity for the user.
@@ -130,8 +136,6 @@ This web app is the first Full stack application I have built. If you have any f
 
 email: dieterichelizabeth@gmail.com
 
----
-
 ## Documentation
 
 - [MySQL Documentation](https://dev.mysql.com/doc/)
@@ -146,6 +150,7 @@ email: dieterichelizabeth@gmail.com
 
 - [W3 Idle Time Docs](https://www.w3docs.com/snippets/javascript/how-to-detect-idle-time-in-javascript.html)
 - [window.onclick()](https://www.w3schools.com/jsref/event_onclick.asp)
+- [Webkit scrollbar styling](https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar)
 
 ---
 
