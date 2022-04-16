@@ -2,7 +2,9 @@
 
 Model-View-Controller (MVC) Tech Blog 🌟 🌚 🌙
 
-Another Tech Blog- but make it early 2000's + Space themed.
+Another Tech Blog- but early 2000's/Space themed.
+
+[Click to view the deployed application!](https://agile-lake-02431.herokuapp.com/)
 
 ## Table of Contents 🌱
 
