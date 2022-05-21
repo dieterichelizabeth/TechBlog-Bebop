@@ -16,13 +16,15 @@ Another Tech Blog- but early 2000's/Space themed.
 
 TechBlog Bebop is a CMS-style blog where developers can publish their blog posts and comment on other developers’ posts as well. Users can view the homepage without logging in, however once a user clicks on any other links in the navigation, or on a post title to see its comments, they are prompted to login/sign up. After a user signs in, they are able to create, update, and delete their posts/comments, as well as read other's comments. The application tracks idle time, and will automatically log the user out after 60 seconds of no "click" activity.
 
-The app follows the MVC paradigm in its structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. Based on the following user story:
+The app follows the MVC paradigm in its structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the Express-Session npm package for authentication. Based on the following user story:
 
 ```md
 AS A developer who writes about tech
 I WANT a CMS-style blog site
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ```
+
+Built with Node.js, CSS, MySQL, Express.js, Express Sessions, Bcrypt, Dotenv, Sequelize, and Handlebars.
 
 ## Screenshots
 
