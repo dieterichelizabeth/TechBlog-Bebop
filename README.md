@@ -134,6 +134,13 @@ single-post.handlebars:
 {{#if currentUser}}{{if}}
 ```
 
+## Technologies used
+  Built with Node.js, CSS, MySQL, Express.js, Express Sessions, Bcrypt, Dotenv, Sequelize, and Handlebars.
+  
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Handlebars](https://img.shields.io/badge/handlebars-%23E34F26.svg?style=for-the-badge&logo=handlebars&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white) 
+ ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+
 ## Feedback
 
 This web app is the first Full stack application I have built. If you have any feedback, please reach out!
